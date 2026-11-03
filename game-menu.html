@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Patang – Main menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--sky1:#2a1a4e;--sky2:#7a2f6b;--sky3:#f2a93b;--paper:#fff3dc;--pink:#d6457a;--teal:#26a6a0;--ink:#1d1236;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 55%,var(--sky3) 100%);color:var(--paper);font-family:'Mukta',system-ui,sans-serif;overflow:hidden;position:relative}
+.sun{position:absolute;left:50%;bottom:-120px;width:420px;height:420px;margin-left:-210px;border-radius:50%;background:#ffd98a;opacity:.55;filter:blur(2px)}
+.roofs{position:absolute;left:0;right:0;bottom:0;height:90px;width:100%}
+.kite{position:absolute;animation:drift var(--d) ease-in-out infinite alternate;transform-origin:50% 0}
+@keyframes drift{from{transform:translate(0,0) rotate(-6deg)}to{transform:translate(var(--x),-24px) rotate(7deg)}}
+.rise{animation:rise 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(90px)}to{opacity:1}}
+main{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(24px,8vw,120px);max-width:640px}
+h1{font-family:'Rozha One',Georgia,serif;font-weight:400;font-size:clamp(64px,14vw,132px);line-height:.9;margin:0 0 8px;color:var(--paper);text-shadow:4px 4px 0 var(--pink)}
+.tag{margin:0 0 36px;font-size:18px;opacity:.9}
+nav{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+button{font:inherit;color:var(--paper);background:none;border:0;border-left:4px solid transparent;padding:8px 16px;font-size:22px;font-weight:600;cursor:pointer;text-align:left;transition:padding .15s,border-color .15s,background .15s;border-radius:0 8px 8px 0}
+button:hover,button:focus-visible,button.on{border-left-color:var(--sky3);background:rgba(29,18,54,.55);padding-left:28px;outline:none}
+button:focus-visible{box-shadow:0 0 0 2px var(--paper)}
+button small{display:block;font-weight:400;font-size:14px;opacity:.75}
+.panel{position:absolute;z-index:3;inset:0;display:none;align-items:center;justify-content:center;background:rgba(29,18,54,.7);padding:20px}
+.panel.open{display:flex}
+.card{background:var(--paper);color:var(--ink);border-radius:18px;padding:24px;width:min(380px,100%)}
+.card h2{font-family:'Rozha One',Georgia,serif;font-weight:400;margin:0 0 14px;font-size:30px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid rgba(29,18,54,.15)}
+.row button{color:var(--ink);font-size:16px;padding:6px 14px;border:2px solid var(--ink);border-radius:999px}
+.row button:hover,.row button.on{background:var(--teal);color:#fff;border-color:var(--teal);padding-left:14px}
+.close{margin-top:14px;background:var(--pink);color:#fff;border-radius:999px;border:0;padding:10px 22px;font-size:16px}
+.close:hover{background:var(--pink);padding-left:22px;filter:brightness(1.1)}
+.toast{position:absolute;z-index:4;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--paper);color:var(--ink);padding:10px 16px;border-radius:10px;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.show{opacity:1}
+.ver{position:absolute;z-index:2;left:20px;bottom:12px;font-size:13px;opacity:.7}
+@media (prefers-reduced-motion:reduce){.kite,.rise{animation:none}}
+</style>
+</head>
+<body>
+<div class="sun"></div>
+
+<svg class="kite" style="left:62%;top:12%;--d:5s;--x:30px" width="90" height="170" viewBox="0 0 90 170" aria-hidden="true"><path d="M45 0 L88 45 L45 100 L2 45Z" fill="#d6457a"/><path d="M45 0 L88 45 L45 45Z" fill="#ffd98a"/><path d="M45 45 L2 45 L45 100Z" fill="#26a6a0"/><path d="M45 100 Q30 125 48 140 T44 170" stroke="#fff3dc" stroke-width="2" fill="none"/></svg>
+<svg class="kite" style="left:80%;top:30%;--d:6.5s;--x:-26px" width="70" height="130" viewBox="0 0 90 170" aria-hidden="true"><path d="M45 0 L88 45 L45 100 L2 45Z" fill="#26a6a0"/><path d="M45 0 L88 45 L45 45Z" fill="#fff3dc"/><path d="M45 100 Q60 125 42 140 T46 170" stroke="#fff3dc" stroke-width="2" fill="none"/></svg>
+<svg class="kite" style="left:48%;top:42%;--d:7s;--x:22px" width="56" height="104" viewBox="0 0 90 170" aria-hidden="true"><path d="M45 0 L88 45 L45 100 L2 45Z" fill="#ffd98a"/><path d="M45 45 L2 45 L45 100Z" fill="#d6457a"/><path d="M45 100 Q30 125 48 140 T44 170" stroke="#fff3dc" stroke-width="2" fill="none"/></svg>
+
+<svg class="roofs" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90V50h90V30h120v40h80V40h140v30h100V20h130v50h120V45h110v25h130V35h110v55Z" fill="#1d1236"/></svg>
+
+<main>
+  <h1 class="rise">Patang</h1>
+  <p class="tag rise" style="animation-delay:.15s">Cut every string before the sun goes down.</p>
+  <nav id="menu" class="rise" style="animation-delay:.3s">
+    <button data-a="play" class="on">Play<small>Start a new match</small></button>
+    <button data-a="continue">Continue<small>Level 4 · Gali Number 9</small></button>
+    <button data-a="levels">Select level</button>
+    <button data-a="settings">Settings</button>
+    <button data-a="quit">Quit</button>
+  </nav>
+</main>
+
+<div class="panel" id="settings">
+  <div class="card" role="dialog" aria-label="Settings">
+    <h2>Settings</h2>
+    <div class="row"><span>Music</span><button data-t="music" class="on">On</button></div>
+    <div class="row"><span>Sound effects</span><button data-t="sfx" class="on">On</button></div>
+    <div class="row"><span>Difficulty</span><button data-t="diff">Easy</button></div>
+    <button class="close" id="closeS">Save and close</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="ver">v0.1</div>
+
+<script>
+const btns=[...document.querySelectorAll('#menu button')];
+const toast=document.getElementById('toast'),panel=document.getElementById('settings');
+let idx=0,tt;
+function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove('show'),1800)}
+function focusAt(i){idx=(i+btns.length)%btns.length;btns.forEach((b,j)=>b.classList.toggle('on',j===idx));btns[idx].focus()}
+function act(a){
+  if(a==='settings'){panel.classList.add('open');document.getElementById('closeS').focus()}
+  else if(a==='play')say('Starting match…');
+  else if(a==='continue')say('Loading Level 4…');
+  else if(a==='levels')say('Level select opens here.');
+  else if(a==='quit')say('Quit is disabled in the preview.');
+}
+btns.forEach((b,i)=>{b.addEventListener('click',()=>{focusAt(i);act(b.dataset.a)});b.addEventListener('mouseenter',()=>focusAt(i))});
+document.addEventListener('keydown',e=>{
+  if(panel.classList.contains('open')){if(e.key==='Escape')panel.classList.remove('open');return}
+  if(e.key==='ArrowDown'){e.preventDefault();focusAt(idx+1)}
+  else if(e.key==='ArrowUp'){e.preventDefault();focusAt(idx-1)}
+  else if(e.key==='Enter'&&document.activeElement===document.body){act(btns[idx].dataset.a)}
+});
+panel.querySelectorAll('[data-t]').forEach(b=>b.addEventListener('click',()=>{
+  if(b.dataset.t==='diff'){const o=['Easy','Medium','Hard'];b.textContent=o[(o.indexOf(b.textContent)+1)%3]}
+  else{const on=b.textContent==='On';b.textContent=on?'Off':'On';b.classList.toggle('on',!on)}
+}));
+document.getElementById('closeS').addEventListener('click',()=>{panel.classList.remove('open');btns[3].focus();say('Settings saved')});
+</script>
+</body>
+</html>
